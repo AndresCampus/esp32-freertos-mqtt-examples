@@ -81,8 +81,12 @@ El objetivo es **aprender cómo se usan las primitivas de FreeRTOS** (tareas, te
 
 ## 📂 Estructura del repo
 /
+
 ├── mqtt_FreeRTOS.ino       # Versión con vTaskDelay
+
 ├── mqtt_FreeRTOS_timer.ino # Versión con timer
+
 ├── mqtt_FreeRTOS_cola.ino  # Versión con cola
+
 └── README.md
 
