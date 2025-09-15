@@ -143,7 +143,7 @@ void taskPublisher(void *pvParameters) {
   // Esperar a que MQTT esté listo
   xSemaphoreTake(semMqttReady, portMAX_DELAY);
   Serial.println(DEBUG_STRING+"Tarea publicadora supera el semáforo");
-  // vTimerCallback(timer_publisher);  // si quieres una invocación inmediata podemos hacerlo nosotros manualmente
+  // callback_publica(timer_publisher);  // si quieres una invocación inmediata podemos hacerlo nosotros manualmente
   xTimerStart( timer_publisher, 0 );
   Serial.println(DEBUG_STRING+"Timer en marcha...");
   vTaskDelete(NULL); // no hay nada más que hacer, el timer sigue su curso
