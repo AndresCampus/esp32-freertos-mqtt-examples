@@ -21,7 +21,6 @@ String topic_SUSCRIPCION;
 #define PERIODO_PUBlICACION 30000
 
 // --- FreeRTOS ---
-QueueHandle_t colaLed;
 SemaphoreHandle_t semMqttReady;
 
 //-----------------------------------------------------
@@ -32,7 +31,7 @@ inline void info_tarea_actual() {
 }
 
 //-----------------------------------------------------
-// Callback MQTT → envia mensajes en la cola del led
+// Callback MQTT → enciende y apaga led
 //-----------------------------------------------------
 void procesa_mensaje(char* topic, byte* payload, unsigned int length) { 
   String mensaje="";
@@ -148,8 +147,7 @@ void taskPublisher(void *pvParameters) {
 void setup() {
   Serial.begin(115200);
   Serial.println();
-  // Crear cola y semáforo
-  colaLed = xQueueCreate(5, sizeof(int));
+  // Crear semáforo
   semMqttReady = xSemaphoreCreateBinary();
   info_tarea_actual();
 
